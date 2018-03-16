@@ -7,10 +7,12 @@ ENV \
 RUN apk add --no-cache pgbouncer
 
 RUN \
-  mkdir -p $PGBOUNCER_DIR \
-  mkdir -p $PGBOUNCER_LOG_DIR
+  mkdir -p $PGBOUNCER_DIR && \
+  mkdir -p $PGBOUNCER_LOG_DIR && \
+  chown postgres:postgres -R $PGBOUNCER_DIR && \
+  chown postgres:postgres -R $PGBOUNCER_LOG_DIR
 
-USER pgbouncer
+USER postgres
 
 EXPOSE 6543
 
