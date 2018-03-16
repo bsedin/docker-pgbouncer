@@ -16,4 +16,4 @@ USER postgres
 
 EXPOSE 6543
 
-CMD pgbouncer -d $PGBOUNCER_DIR/pgbouncer.ini
+CMD pgbouncer $PGBOUNCER_DIR/pgbouncer.ini
